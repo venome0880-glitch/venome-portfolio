@@ -127,6 +127,50 @@
     opacity: 1;
     transform: translateY(0);
   }
+  .entry-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(ellipse at center, hsl(var(--accent) / 0.1), transparent 48%),
+      hsl(var(--background) / 0.96);
+    backdrop-filter: blur(12px);
+  }
+  .entry-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .entry-content h1 {
+    margin: 0;
+    font-size: clamp(4rem, 16vw, 9rem);
+    letter-spacing: 0.16em;
+    line-height: 1;
+  }
+  .entry-prompt {
+    border: 0;
+    background: transparent;
+    padding: 0.75rem 1rem;
+    color: hsl(var(--foreground) / 0.8);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    letter-spacing: 0.18em;
+    cursor: pointer;
+    animation: entry-blink 1.6s steps(2, start) infinite;
+  }
+  .entry-prompt:hover {
+    color: hsl(var(--foreground));
+  }
+  .entry-prompt:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+  }
   .text-gradient {
     background: var(--gradient-text);
     -webkit-background-clip: text;
@@ -232,8 +276,14 @@
     transform: none;
     transition: none;
   }
+  .entry-prompt {
+    animation: none;
+  }
 }
 
+@keyframes entry-blink {
+  to { opacity: 0.35; }
+}
 @keyframes ambient-drift-one {
   to { transform: translate3d(16vw, 18vh, 0) scale(1.12); }
 }

@@ -54,6 +54,17 @@ const stack = [
 const Index = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    if (hasEntered) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [hasEntered]);
 
   useEffect(() => {
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -118,6 +129,28 @@ const Index = () => {
         <span className="ambient-orb ambient-orb-three" />
       </div>
 
+      {!hasEntered && (
+        <div
+          className="entry-screen"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="entry-title"
+        >
+          <div className="entry-content">
+            <h1 id="entry-title" className="font-feminine text-shimmer">
+              VENOME
+            </h1>
+            <button
+              type="button"
+              autoFocus
+              className="entry-prompt"
+              onClick={() => setHasEntered(true)}
+            >
+              [CLICK TO CONTINUE]
+            </button>
+          </div>
+        </div>
+      )}
       <div className="relative z-10">
         <Nav />
 
