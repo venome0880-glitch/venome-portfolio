@@ -60,9 +60,9 @@ export default function DiscordProfile({
     : null;
 
   const statusColor: Record<string, string> = {
-    online: "bg-emerald-400",
-    idle: "bg-amber-400",
-    dnd: "bg-rose-500",
+    online: "bg-white",
+    idle: "bg-zinc-300",
+    dnd: "bg-zinc-500",
     offline: "bg-zinc-500",
   };
 
@@ -83,7 +83,7 @@ export default function DiscordProfile({
             alt={user?.global_name || user?.username || "Discord avatar"}
             width={512}
             height={512}
-            className="absolute inset-0 h-full w-full rounded-full object-cover"
+            className="absolute inset-0 h-full w-full rounded-full object-cover grayscale"
           />
           {/* decoration (overlay, exact-aligned) */}
           {decorationUrl && (
@@ -93,7 +93,7 @@ export default function DiscordProfile({
               aria-hidden
               width={512}
               height={512}
-              className="pointer-events-none absolute inset-0 h-full w-full scale-[1.18] rounded-full object-contain"
+              className="pointer-events-none absolute inset-0 h-full w-full scale-[1.18] rounded-full object-contain grayscale"
             />
           )}
           {/* status dot */}

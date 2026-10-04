@@ -36,7 +36,7 @@ const Constellation = () => {
         vx: (Math.random() - 0.5) * 0.25,
         vy: (Math.random() - 0.5) * 0.25,
         r: Math.random() * 1.4 + 0.4,
-        hue: 190 + Math.random() * 80,
+        hue: 0,
       }));
     };
 
@@ -84,7 +84,7 @@ const Constellation = () => {
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d < 130) {
             const alpha = (1 - d / 130) * 0.35;
-            ctx.strokeStyle = `hsla(${(a.hue + b.hue) / 2}, 90%, 70%, ${alpha})`;
+            ctx.strokeStyle = `hsla(0, 0%, 85%, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -96,7 +96,7 @@ const Constellation = () => {
 
       // nodes
       for (const p of points) {
-        ctx.fillStyle = `hsla(${p.hue}, 95%, 75%, 0.9)`;
+        ctx.fillStyle = "hsla(0, 0%, 92%, 0.9)";
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();

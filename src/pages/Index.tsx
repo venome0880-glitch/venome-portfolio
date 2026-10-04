@@ -108,20 +108,11 @@ const Index = () => {
     >
       <div className="ambient-background" aria-hidden="true">
         {!reducedMotion && (
-          <video
-            className="ambient-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="https://images.pexels.com/videos/30975000/pexels-photo-30975000.jpeg"
-          >
-            <source
-              src="https://videos.pexels.com/video-files/30975000/13241693_2160_1440_24fps.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <img
+            className="ambient-image"
+            src="/monochrome-background.gif"
+            alt=""
+          />
         )}
         <span className="ambient-video-overlay" />
         <span className="ambient-orb ambient-orb-one" />
