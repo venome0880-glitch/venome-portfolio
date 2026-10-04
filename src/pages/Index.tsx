@@ -25,6 +25,15 @@ const projects = [
     cta: "View Discord",
     featured: false,
   },
+  {
+    name: "NEON VOID",
+    status: "live" as const,
+    blurb: "Discover NEON VOID, my Discord bot in the Discord App Directory.",
+    stack: ["DISCORD BOT"],
+    href: "https://discord.com/discovery/applications/1468997990575378432",
+    cta: "View on Discord",
+    featured: true,
+  },
 ];
 
 const stats = [
@@ -242,7 +251,7 @@ const Index = () => {
               className={`group relative overflow-hidden rounded-2xl border bg-card/50 p-8 transition-all hover:bg-card ${
                 p.featured
                   ? "border-accent/40 shadow-[0_0_60px_-25px_hsl(var(--accent)/0.8)]"
-                  : "border-border md:col-span-2"
+                  : "border-border"
               }`}
             >
               <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
